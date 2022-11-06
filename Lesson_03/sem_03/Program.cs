@@ -1,12 +1,25 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-
+﻿// Напишите программу, которая принимает на вход координаты точки (Х, У), причем Х и У
+//не равны 0 и выдает номер четвертой плоскости, в которой находится эиа точка.
+//bool isParsedX = int.TryParse(Console.ReadLine(), out int x);
 bool isParsedX = int.TryParse(Console.ReadLine(), out int x);
-int y = Convert.ToInt32(Console.ReadLine());
+bool isParsedY = int.TryParse(Console.ReadLine(), out int y);
 
+if(isParsedX || isParsedY)
+{
+    Console.WriteLine("Ошибка! Не правильно введены координаты");
+
+    return;
+}
+int numberOfQuarter = DetermineNumberOfQuarter(x, y);
+//if(numberOfQuarter == -1)
+//{
+//    Console.WriteLine("Ошибка! Не правильно ввели данные");
+//}//
+//else
+//{
+//    Console.WriteLine(numberOfQuarter);
+//}
 int DetermineNumberOfQuarter(int x, int y)
-
-if 
 {
     if (x > 0 && y > 0)
     {
@@ -20,9 +33,9 @@ if
     {
         return 3;
     }
-    if (x > 0 && y > 0)
+    if (x > 0 && y < 0)
     {
         return 4;
     }
-    
+    return -1;
 }
