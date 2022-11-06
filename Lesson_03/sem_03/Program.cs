@@ -4,21 +4,20 @@
 bool isParsedX = int.TryParse(Console.ReadLine(), out int x);
 bool isParsedY = int.TryParse(Console.ReadLine(), out int y);
 
-if(isParsedX || isParsedY)
+if (!isParsedX || !isParsedY)
 {
     Console.WriteLine("Ошибка! Не правильно введены координаты");
-
     return;
 }
 int numberOfQuarter = DetermineNumberOfQuarter(x, y);
-//if(numberOfQuarter == -1)
-//{
-//    Console.WriteLine("Ошибка! Не правильно ввели данные");
-//}//
-//else
-//{
-//    Console.WriteLine(numberOfQuarter);
-//}
+if(numberOfQuarter == -1)
+{
+    Console.WriteLine("Ошибка! Не правильно ввели данные");
+}//
+else
+{
+    Console.WriteLine(numberOfQuarter);
+}
 int DetermineNumberOfQuarter(int x, int y)
 {
     if (x > 0 && y > 0)
