@@ -1,7 +1,12 @@
 ﻿// Напишите программу, которая принимает на вход пятизначное число и проверяет,
 // является ли оно палиндромом.
-  Console.WriteLine("Введите число");
-  int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите пятизначное число");
+bool isParsed = int.TryParse(Console.ReadLine(), out int number);
+if(!isParsed || length !=5)
+{
+    Console.WriteLine("Не правильно введены данные");
+    return;
+}
 int GetLengthNumber(int number)
 {
     int count = 0;
@@ -12,33 +17,29 @@ int GetLengthNumber(int number)
     }
     return count;
 }
-
-void CheckPolindromNumber(int number)
+int i = 0;
+int length = GetLengthNumber(number);
+void CheckPolindromNumber(int number) 
 {
     int length = GetLengthNumber(number);
-    int mj = length % 2;
-    if (mj == 0) 
-    { 
-      Console.WriteLine("Ошибка! Ввели четное число");
-    }
-    else 
-    {
-        int[] array = new int[length];
-        for (int j = length -1; j >= 0; j--)
+    int[] array = new int[length];
+    for (int k = length -1 ; k >= 0; k--)
         {
-            array[j] = number % 10;
+            array[k] = number % 10;
             number /= 10;
         }
-        int i = 0;
-        while (i < mj / 2)
+    int j = length - 1; 
+    while (i <= j)
+    {
+        if (array[i] != array[j])
         {
-            if (array[i] == array[mj - i])
-            {
-                 i++;
-            }
-            else Console.WriteLine("Число не является полиндромом");
+            Console.WriteLine("Число не является полиндромом");
+            return;
         }
-        Console.WriteLine("Число полиндромом");
+        i++;
+        j--; 
     }
+        Console.WriteLine("Число полиндромом");
+        return;
 }
 CheckPolindromNumber(number);
