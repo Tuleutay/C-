@@ -17,11 +17,9 @@ int GetLengthNumber(int number)
     }
     return count;
 }
-int i = 0;
 int length = GetLengthNumber(number);
 void CheckPolindromNumber(int number) 
 {
-    int length = GetLengthNumber(number);
     int[] array = new int[length];
     for (int k = length -1 ; k >= 0; k--)
         {
@@ -29,6 +27,7 @@ void CheckPolindromNumber(int number)
             number /= 10;
         }
     int j = length - 1; 
+    int i = 0;
     while (i <= j)
     {
         if (array[i] != array[j])
