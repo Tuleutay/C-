@@ -2,6 +2,7 @@
 // является ли оно палиндромом.
 Console.WriteLine("Введите пятизначное число");
 bool isParsed = int.TryParse(Console.ReadLine(), out int number);
+int length = GetLengthNumber(number);
 if(!isParsed || length !=5)
 {
     Console.WriteLine("Не правильно введены данные");
@@ -17,7 +18,6 @@ int GetLengthNumber(int number)
     }
     return count;
 }
-int length = GetLengthNumber(number);
 void CheckPolindromNumber(int number) 
 {
     int[] array = new int[length];
