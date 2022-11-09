@@ -8,8 +8,22 @@ if(!isParsed)
     Console.WriteLine("Не правильно введены данные");
     return;
 }
-int [] arr = 
+Console.WriteLine("Введите элементы массива");
 
+int[] InputArray(int lenght)
+{
+    int[] array = new int[lenght];
+    for(int i = 0; i < lenght; i++)
+    {
+        bool isParsed = int.TryParse(Console.ReadLine(), out int number);
+        if(!isParsed)
+        {
+            Console.WriteLine("Не правильно введены данные");
+        }
+        else array[i] = number;
+    }
+    return array;
+}
 void PrintArray(int[] array)
 {
     Console.Write("{ ");
@@ -20,4 +34,5 @@ void PrintArray(int[] array)
     }
     Console.Write("}");
 }
+int[] arr = InputArray(lenght);
 PrintArray(arr);
