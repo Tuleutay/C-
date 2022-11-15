@@ -3,12 +3,13 @@ int[] numbers = new int[12];
 
 FillArray(numbers);
 PrintArray(numbers);
-int sumPositive = GetSumPositivNumbers(numbers);
-Console.WriteLine($"Positive sum = {sumPositive}");
-int sumNegative = GetSumNegativeNumbers(numbers);
-Console.WriteLine($"Negative sum = {sumNegative}");
 
-(int,int) sum = GetSumNegativeAndPositiveNumbers(numbers);
+//int sumPositive = GetSumPositivNumbers(numbers);
+//Console.WriteLine($"Positive sum = {sumPositive}");
+//int sumNegative = GetSumNegativeNumbers(numbers);
+//Console.WriteLine($"Negative sum = {sumNegative}");
+//
+//(int,int) sum = GetSumNegativeAndPositiveNumbers(numbers);
 
 Console.WriteLine($"Negative = {sum.Item1}, Positive = {sum.Item2}");
 
