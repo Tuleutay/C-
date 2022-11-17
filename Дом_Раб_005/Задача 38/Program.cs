@@ -8,10 +8,10 @@ int[] array = new int[num];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine();
-Console.Write(SumMaxMinNubers(array));
+Console.Write(DiffMaxMinNubers(array));
 
 
-int SumMaxMinNubers(int[] array)
+int DiffMaxMinNubers(int[] array)
 {
     int maxNum = array[0];
     int minNum = array[0];
