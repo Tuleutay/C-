@@ -1,37 +1,28 @@
-﻿// Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное. 45 -> 101101
-// 3 -> 11
-// 2 -> 10
+﻿// Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+// Если N = 5 -> 0 1 1 2 3 Если N = 3 -> 0 1 1
+// Если N = 7 -> 0 1 1 2 3 5 8
 
 Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(ConversionToBinaryNumber(number));
+double[] arrayFibonacci = Fibonacci(number);
+PrintArray(arrayFibonacci);
 
-
-int ConversionToBinaryNumber(int number)
+double[] Fibonacci(int n)
 {
-    int binaryNumber = 0;
-    while (number > 0)
+    double[] array = new double[n];
+    array[0] = 0;
+    array[1] = 1;
+    for (int i = 2; i < array.Length; i++)
     {
-        binaryNumber = binaryNumber + number % 2;
-        number = number / 2;
-        binaryNumber = binaryNumber * 10;
+        array[i] = array[i - 1] + array[i - 2];
     }
-    // binaryNumber = binaryNumber / 10;
-    return binaryNumber;
+    return array;
 }
 
-string result = ConvertDecToBinary(4); //вызвали метод
-Console.WriteLine(result); //вывели на экран
-string ConvertDecToBinary(int number) //объявили метод
+void PrintArray(double[] array)
 {
-    string tmp = "";
-    while (number > 0)
+    for (int i = 0; i < array.Length; i++)
     {
-        int remainder = number % 2;
-        number /= 2;
-        tmp = remainder.ToString() + tmp;
-        
+        Console.Write($"{array[i]} ");
     }
-    return tmp; //вернули результат
-
 }
