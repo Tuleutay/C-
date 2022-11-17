@@ -4,10 +4,10 @@
 
 Console.WriteLine("Введите число");
 int number = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(ConvertDecToBinary(number));
+Console.WriteLine(ConversionToBinaryNumber(number));
 
 
-/*int ConversionToBinaryNumber(int number)
+int ConversionToBinaryNumber(int number)
 {
     int binaryNumber = 0;
     while (number > 0)
@@ -16,12 +16,12 @@ Console.WriteLine(ConvertDecToBinary(number));
         number = number / 2;
         binaryNumber = binaryNumber * 10;
     }
-    //binaryNumber = binaryNumber / 10;
+    // binaryNumber = binaryNumber / 10;
     return binaryNumber;
-}*/
+}
 
-//string result = ConvertDecToBinary(4); //вызвали метод
-//Console.WriteLine(result); //вывели на экран
+string result = ConvertDecToBinary(4); //вызвали метод
+Console.WriteLine(result); //вывели на экран
 string ConvertDecToBinary(int number) //объявили метод
 {
     string tmp = "";
