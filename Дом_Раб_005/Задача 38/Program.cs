@@ -27,8 +27,8 @@ int SumMaxMinNubers(int[] array)
       }
     }
     
-    int sum = maxNum + minNum;
-    return sum;
+    int diff = maxNum - minNum;
+    return diff;
 }
 
 void FillArray(int[] array)
