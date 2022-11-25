@@ -29,39 +29,49 @@ int[,] array = CreateRandom2DArray(m, n);
 Print2DArray(array);
 
 Console.WriteLine();
-GetSumRowNumbers(array);
-int minSumRow = GetRowMinSum(array);
+int[] sumArray = GetSumRowNumbers(array);
+//PrintArray(sumArray);
+int minSumRow = GetRowMinSum(sumArray);
 Console.WriteLine($"{minSumRow} строка с наименьшей суммой");
 
+/*void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine($"{array[i]} ");
+    }
 
+}*/
 int[] GetSumRowNumbers(int[,] array)
 {
     int[] sumRow = new int[array.GetLength(0)];
     int index = 0;
+    int sum = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        
+
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            int sum = sum + array[i,j];
+            sum = sum + array[i, j];
         }
-       sumRow[index] = sum;
-       index++;
+        sumRow[index] = sum;
+        index++;
+        sum = 0;
     }
     return sumRow;
 }
 int GetRowMinSum(int[] array)
 {
     int minSum = array[0];
-    int index=0;
+    int index = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if(minSum > array[i])
+        if (array[i] < minSum)
         {
             index = i;
         }
     }
-    return index;
+    return index+1;
 }
 
 int[,] CreateRandom2DArray(int m, int n)
