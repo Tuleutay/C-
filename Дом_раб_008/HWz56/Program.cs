@@ -1,15 +1,18 @@
-﻿/*Задача 54: Задайте двумерный массив. Напишите метод, 
-который упорядочит по убыванию элементы каждой строки двумерного массива. И продемонстрируйте его работу.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-В итоге получается вот такой массив:
-7 4 2 1
-9 5 3 2
-8 4 4 2
-*/
+﻿/* Задача 56: Задайте двумерный массив. Напишите метод, 
+который будет находить строку с наименьшей суммой элементов.
 
+Например, задан массив:
+
+1 4 7 2
+
+5 9 2 3
+
+8 4 2 4
+
+5 2 6 7
+
+Программа считает сумму элементов в каждой строке и выдаёт номер 
+строки с наименьшей суммой элементов: 1 строка */
 
 Console.WriteLine("Введите количество строк");
 bool isParsedM = int.TryParse(Console.ReadLine(), out int m);
@@ -26,29 +29,39 @@ int[,] array = CreateRandom2DArray(m, n);
 Print2DArray(array);
 
 Console.WriteLine();
+GetSumRowNumbers(array);
+int minSumRow = GetRowMinSum(array);
+Console.WriteLine($"{minSumRow} строка с наименьшей суммой");
 
-SortDescendingRow(array);
-Print2DArray(array);
 
-void SortDescendingRow(int[,] array)
+int[] GetSumRowNumbers(int[,] array)
 {
+    int[] sumRow = new int[array.GetLength(0)];
+    int index = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = array.GetLength(1)-1; j >=0; j--)
+        
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            int maxPosition = j;
-            for (int k = j - 1; k >=0; k--)
-            {
-                if (array[i,k] < array[i,maxPosition])
-                {
-                    maxPosition = k;
-                }
-            }
-            int temporary = array[i,j];
-            array[i,j] = array[i,maxPosition];
-            array[i,maxPosition] = temporary;
+            int sum = sum + array[i,j];
+        }
+       sumRow[index] = sum;
+       index++;
+    }
+    return sumRow;
+}
+int GetRowMinSum(int[] array)
+{
+    int minSum = array[0];
+    int index=0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(minSum > array[i])
+        {
+            index = i;
         }
     }
+    return index;
 }
 
 int[,] CreateRandom2DArray(int m, int n)
