@@ -30,18 +30,18 @@ Print2DArray(array);
 
 Console.WriteLine();
 int[] sumArray = GetSumRowNumbers(array);
-//PrintArray(sumArray);
+PrintArray(sumArray);
 int minSumRow = GetRowMinSum(sumArray);
 Console.WriteLine($"{minSumRow} строка с наименьшей суммой");
 
-/*void PrintArray(int[] array)
+void PrintArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
         Console.WriteLine($"{array[i]} ");
     }
 
-}*/
+}
 int[] GetSumRowNumbers(int[,] array)
 {
     int[] sumRow = new int[array.GetLength(0)];
