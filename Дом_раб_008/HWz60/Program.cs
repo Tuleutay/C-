@@ -18,8 +18,39 @@ if (!isParsedX || !isParsedY || !isParsedZ)
     Console.WriteLine("Ошибка!");
     return;
 }
-int[,,] result = CreateRandom3DArray(x, y, z);
-Print3DArray(result);
+int[,,] random3Darray = CreateRandom3DArray(x, y, z);
+Print3DArray(random3Darray);
+
+
+/*bool CheckingTriangle(int a, int b, int c)
+{
+    if (a <= 0 & b <= 0 & c <= 0)
+    {
+        return false;
+    }
+    return a < b + c & b < a + c & c < a + b;
+}*/
+
+
+bool CheckNumbersInArray(int[,,] array, int number)
+{
+    Random random = new Random();
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                if (number != array[i, j, k])
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
 
 
 
@@ -38,8 +69,6 @@ void Print3DArray(int[,,] array)
         }
     }
 }
-
-
 int[,,] CreateRandom3DArray(int x, int y, int z)
 {
     int[,,] array = new int[x, y, z];
@@ -51,6 +80,10 @@ int[,,] CreateRandom3DArray(int x, int y, int z)
             for (int k = 0; k < array.GetLength(2); k++)
             {
                 array[i, j, k] = random.Next(1, 100);
+                while (CheckNumbersInArray(array, array[i, j, k]) == true)
+                {
+                    array[i, j, k] = random.Next(1, 100);
+                }
             }
         }
     }
