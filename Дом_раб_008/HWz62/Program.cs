@@ -16,9 +16,10 @@ var selectedPeople = from p in people // передаем каждый элем�
 foreach (string person in selectedPeople)
     Console.WriteLine(person);
     */
-    string[] people = { "Tom", "Bob", "Sam", "Tim", "Tomas", "Bill" };
+  string[] people = { "Tom", "Bob", "Sam", "Tim", "Tomas", "Bill" };
  
 var selectedPeople = people.Where(p => p.ToUpper().StartsWith("T")).OrderBy(p => p);
  
 foreach (string person in selectedPeople)
     Console.WriteLine(person);
+    

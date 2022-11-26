@@ -24,14 +24,20 @@ Print2DArray(result);
 
 int[,] GetMultiplication2matrices(int[,] array1, int[,] array2)
 {
-    int[,] arrayResult = new int[m,n];
+    int[,] arrayResult = new int[array1.GetLength(0), array2.GetLength(1)];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            arrayResult[i, j] = array1[i,0] * array2[0,j] + array1[i,1] * array2[1,j];
+            int productMatrices = 0;
+            for (int k = 0; k < array1.GetLength(1); k++)
+            {
+                productMatrices += array1[i, k] * array2[k, j];
+            }
+            arrayResult[i, j] = productMatrices;
         }
     }
+
     return arrayResult;
 
 }
